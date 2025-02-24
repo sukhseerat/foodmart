@@ -3,44 +3,14 @@ import { FaChevronLeft, FaChevronRight, FaHeart, FaPlus, FaMinus, FaStar } from 
 import "../styles/BestSelling.css";
  
 const products = [
-  { id: 1, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoes.png",
-    name: "Sunstar Fresh Melon Juice",
-   price: 18.0,
-    discount: "-15%",
-   },
-  { id: 2, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoketchup.png",
-   name: "Sunstar Fresh Melon Juice",
-   price: 18.0,
-   discount: "-15%",
-   },
-  { id: 3, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png",
-    name: "Sunstar Fresh Melon Juice",
-    price: 18.0,
-   discount: "-15%",
-   },
-  { id: 4, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png",
-   name: "Sunstar Fresh Melon Juice",
-   price: 18.0,
-    discount: "-15%",
-   },
-  { id: 5, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoketchup.png",
-   name: "Sunstar Fresh Melon Juice",
-   price: 18.0,
-   },
-  { id: 6, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoes.png",
-   name: "Sunstar Fresh Melon Juice",
-    price: 18.0 ,
-  },
-  { id: 7, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png",
-   name: "Sunstar Fresh Melon Juice",
-    price: 18.0,
-     discount: "-15%" ,
-    },  
-  { id: 8, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png",
-    name: "Sunstar Fresh Melon Juice",
-     price: 18.0,
-      discount: "-15%",
-     },
+  { id: 1, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoes.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
+  { id: 2, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoketchup.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
+  { id: 3, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
+  { id: 4, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
+  { id: 5, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoketchup.png", name: "Sunstar Fresh Melon Juice", price: 18.0 },
+  { id: 6, image: "https://themewagon.github.io/FoodMart/images/thumb-tomatoes.png", name: "Sunstar Fresh Melon Juice", price: 18.0 },
+  { id: 7, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
+  { id: 8, image: "https://themewagon.github.io/FoodMart/images/thumb-bananas.png", name: "Sunstar Fresh Melon Juice", price: 18.0, discount: "-15%" },
 ];
  
 const ProductList = () => {
@@ -87,11 +57,14 @@ const ProductList = () => {
             <FaHeart className="favorite-icon" />
             <img src={product.image} alt={product.name} className="product-image" />
             <h3 className="product-name">{product.name}</h3>
-            <div className="product-info">
-              <span>1 UNIT</span>
-              <span className="rating"><FaStar color="gold" /> 4.5</span>
+           
+           
+            <div className="product-details">
+            <span>1 UNIT <FaStar color="gold" /> 4.5</span>
             </div>
-            <p className="price">${product.price.toFixed(2)}</p>
+           
+            <p className="product-price">${product.price.toFixed(2)}</p>
+ 
             <div className="cart-controls">
               <div className="quantity-control">
                 <button className="quantity-button" onClick={() => handleDecrement(product.id)}><FaMinus /></button>

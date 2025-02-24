@@ -4,24 +4,48 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../styles/Category.css";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa"; 
-
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+ 
 const categories = [
-    { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Chicken", img: "https://themewagon.github.io/FoodMart/images/icon-animal-products-drumsticks.png" },
-  { name: "Bread Flour", img: "https://themewagon.github.io/FoodMart/images/icon-bread-herb-flour.png" },
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Breads & Sweets", img: "https://themewagon.github.io/FoodMart/images/icon-bread-baguette.png" },
-  { name: "Soft Drinks", img: "https://themewagon.github.io/FoodMart/images/icon-soft-drinks-bottle.png" },
-  { name: "Wines", img: "https://themewagon.github.io/FoodMart/images/icon-wine-glass-bottle.png" },
-
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
-  { name: "Fruits & Veges", img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png" },
+    { name: "Fruits & Veges",
+       img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+       },
+  { name: "Chicken",
+     img: "https://themewagon.github.io/FoodMart/images/icon-animal-products-drumsticks.png"
+     },
+  { name: "Bread Flour",
+    img: "https://themewagon.github.io/FoodMart/images/icon-bread-herb-flour.png"
+    },
+  { name: "Fruits & Veges",
+    img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+    },
+  { name: "Breads & Sweets",
+    img: "https://themewagon.github.io/FoodMart/images/icon-bread-baguette.png"
+     },
+  { name: "Soft Drinks",
+     img: "https://themewagon.github.io/FoodMart/images/icon-soft-drinks-bottle.png"
+      },
+  { name: "Wines",
+     img: "https://themewagon.github.io/FoodMart/images/icon-wine-glass-bottle.png"
+     },
+ 
+  { name: "Fruits & Veges",
+     img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+     },
+  { name: "Fruits & Veges",
+    img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+    },
+  { name: "Fruits & Veges",
+     img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+      },
+  { name: "Fruits & Veges",
+     img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+      },
+  { name: "Fruits & Veges",
+     img: "https://themewagon.github.io/FoodMart/images/icon-vegetables-broccoli.png"
+     },
 ];
-
+ 
 const CategorySection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
@@ -29,17 +53,15 @@ const CategorySection = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
+ 
   return (
     <div className="category-container">
-      <div className="category-header d-flex flex-wrap justify-content-between mb-4">
+     <div className="category-header">
         <h2 className="section-title">Category</h2>
-        <div className="d-flex align-items-center">
-          <a href="/categories" className="btn-link text-decoration-none">
+        <div className="header-right">
+          <a href="/categories" className="btn-link">
             View All Categories →
           </a>
-
-        
           <div className="swiper-buttons">
             <button className="swiper-prev category-carousel-prev">
               <FaAngleLeft />
@@ -50,7 +72,7 @@ const CategorySection = () => {
           </div>
         </div>
       </div>
-
+     
       <div className="slider-wrapper">
         <Swiper
           modules={[Navigation]}
@@ -83,5 +105,5 @@ const CategorySection = () => {
     </div>
   );
 };
-
+ 
 export default CategorySection;

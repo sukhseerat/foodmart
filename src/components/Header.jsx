@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch, FaUser, FaHeart } from "react-icons/fa";
 import '../styles/Header.css';
- 
+ import Cart from '../components/Cart';
 const bannerSlides = [
   {
     tag: '100% Natural',
@@ -26,55 +26,106 @@ const bannerSlides = [
  
 const Header = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showPagesDropdown, setShowPagesDropdown] = useState(false);
+  const [showDepartmentsDropdown, setShowDepartmentsDropdown] = useState(false);
+ 
+  const [isCartOpen, setIsCartOpen] = useState(false);
+ 
  
   return (
     <div>
  
-    <div className="top-bar">
-      <div className="container">
-       
-        <div className="logo">
-          <img src="https://themewagon.github.io/FoodMart/images/logo.png" alt="FoodMart Logo" className="logo-img" />
-         
-        </div>
-       
-   
-        <div className="search-bar">
-          <select className="category-select">
-            <option>All Categories</option>
-          </select>
-          <input type="text" placeholder="Search for more than 20,000 products" className="search-input" />
-          <FaSearch className="search-icon" />
-        </div>
+      <div className="top-bar">
+        <div className="container">
  
-   
-        <div className="support-cart">
-          <div className="support-text">
-            <span className="support-label">For Support?</span>
-            <span className="support-number">+980-34984089</span>
+          <div className="logo">
+            <img src="https://themewagon.github.io/FoodMart/images/logo.png" alt="FoodMart Logo" className="logo-img" />
+ 
           </div>
-          <FaUser className="icon" />
-          <FaHeart className="icon" />
-          <div className="cart-text">Your Cart <span className="cart-amount">$1290.00</span></div>
+ 
+ 
+          <div className="search-bar">
+            <select className="category-select">
+              <option>All Categories</option>
+              <option>Groceries</option>
+              <option>Drinks</option>
+              <option>Chocolates</option>
+ 
+            </select>
+            <input type="text" placeholder="Search for more than 20,000 products" className="search-input" />
+            <FaSearch className="search-icon" />
+          </div>
+ 
+ 
+          <div className="support-cart">
+            <div className="support-text">
+              <span className="support-label">For Support?</span>
+              <span className="support-number">+980-34984089</span>
+            </div>
+            <div className="icon-group">
+              <FaUser className="icon" />
+              <FaHeart className="icon" />
+            </div>
+ 
+            <div className="cart-text" onClick={() => setIsCartOpen(true)}>
+              Your Cart <span className="cart-amount">$1290.00</span>
+            </div>
+          </div>
         </div>
       </div>
  
-     
-      <div className="menu-bar">
+ 
+      {isCartOpen && <Cart onClose={() => setIsCartOpen(false)} />}
+    <div className="menu-bar">
         <div className="menu-container">
-          <span className="menu-item bold">Shop by Departments ▼</span>
+          <div
+            className="menu-item dropdown"
+            onMouseEnter={() => setShowDepartmentsDropdown(true)}
+            onMouseLeave={() => setShowDepartmentsDropdown(false)}
+          >
+            <span className="bold">Shop by Departments ▼</span>
+            {showDepartmentsDropdown && (
+              <ul className="dropdown-menu">
+                <li><a href="#">Drinks</a></li>
+                <li><a href="#">Groceries</a></li>
+                <li><a href="#">Chocolates</a></li>
+              </ul>
+            )}
+          </div>
           <span className="menu-item">Women</span>
           <span className="menu-item">Men</span>
           <span className="menu-item">Kids</span>
           <span className="menu-item">Accessories</span>
-          <span className="menu-item bold">Pages ▼</span>
+ 
+          <div
+            className="menu-item dropdown"
+            onMouseEnter={() => setShowPagesDropdown(true)}
+            onMouseLeave={() => setShowPagesDropdown(false)}
+          >
+            <span className="bold">Pages ▼</span>
+            {showPagesDropdown && (
+              <ul className="dropdown-menu">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="single-product.html">Single Product</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="single-post.html">Single Post</a></li>
+                <li><a href="styles.html">Styles</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="thank-you.html">Thank You</a></li>
+                <li><a href="account.html">My Account</a></li>
+                <li><a href="404.html">404 Error</a></li>
+              </ul>
+            )}
+          </div>
           <span className="menu-item">Brand</span>
           <span className="menu-item">Sale</span>
           <span className="menu-item">Blog</span>
         </div>
       </div>
-    </div>
- 
+   
  
       <div className="hero">
         <div className="main-banner">
@@ -94,27 +145,34 @@ const Header = () => {
         <div className="side-banners">
           <div className="promo-banner fruits">
             <div className="promo-content">
-              <span>SALE</span>
+             
               <h3>20% Off</h3>
-              <h4>Fruits & Vegetables</h4>
+              <span className="sale-line"></span>
+              <span>SALE</span>
+              <h4>Fruits &<br /> Vegetables</h4>
               <a href="#" className="shop-link">Shop Collection →</a>
             </div>
             <img src="https://themewagon.github.io/FoodMart/images/ad-image-1.png" alt="Fruits" />
           </div>
           <div className="promo-banner bakery">
             <div className="promo-content">
-              <span>SALE</span>
-              <h3>15% Off</h3>
+ 
+              <h3>15% Off</h3>                      
+             <span className="sale-line"></span>
+             <span className="sale-text">SALE</span>
               <h4>Baked Products</h4>
+ 
               <a href="#" className="shop-link">Shop Collection →</a>
             </div>
             <img src="https://themewagon.github.io/FoodMart/images/ad-image-2.png" alt="Bakery" />
           </div>
         </div>
       </div>
-    </div>
+      </div>
+ 
+   
+ 
   );
 };
  
 export default Header;
- 
